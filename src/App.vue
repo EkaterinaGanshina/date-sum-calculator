@@ -95,7 +95,7 @@
           res += i
         }
 
-        return res
+        return String(res).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
       }
     },
 
