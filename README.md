@@ -1,4 +1,7 @@
-# date-sum-calculator
+# Date Sum Calculator
+
+Этот микро-калькулятор считает количество дней между двумя датами, указанными с помощью datepicker'ов. 
+Где можно посмотреть: тыц
 
 ## Project setup
 ```
@@ -14,16 +17,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
