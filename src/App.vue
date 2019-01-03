@@ -90,10 +90,8 @@
       },
 
       sum() {
-        let res = this.sumStart;
-        for (let i = 0; i <= this.daysCount; i++) {
-          res += i
-        }
+        // all selected days + current day
+        let res = this.sumStart + this.daysCount * (this.daysCount + 1) / 2;
 
         return String(res).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
       }
