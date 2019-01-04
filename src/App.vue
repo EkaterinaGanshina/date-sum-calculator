@@ -30,7 +30,7 @@
       <div class="row">
         <div class="col">
           <div class="result">
-            <strong>Результат:</strong> за {{daysCount}} дней вы накопите <strong>{{sum}}&nbsp;руб.</strong>
+            <strong>Результат:</strong> за {{daysStr}} вы накопите <strong>{{sum}}&nbsp;руб.</strong>
           </div>
         </div>
       </div>
@@ -41,6 +41,7 @@
 <script>
   import flatPickr from 'vue-flatpickr-component';
   import { Russian } from 'flatpickr/dist/l10n/ru.js';
+  import proschet from 'proschet';
   import 'flatpickr/dist/flatpickr.css';
 
   const months = [
@@ -80,6 +81,13 @@
         const date = this.dateEnd.match(/\d+\b/g);
         const month = +date[1] - 1;
         return `${date[0]} ${months[month]} ${date[2]} года`
+      },
+
+      daysStr() {
+        const days = ['день', 'дня', 'дней'];
+        const getDays = proschet(days);
+
+        return `${this.daysCount}\u00a0${getDays(this.daysCount)}`
       },
 
       daysCount() {
