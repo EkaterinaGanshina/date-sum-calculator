@@ -86,14 +86,15 @@
         const startDate = new Date(this.dateStart.replace(/(\d+)\.(\d+)\.(\d+)/, '$2/$1/$3'));
         const endDate = new Date(this.dateEnd.replace(/(\d+)\.(\d+)\.(\d+)/, '$2/$1/$3'));
 
-        return Math.abs(endDate.getTime() - startDate.getTime()) / 1000 / 60 / 60 / 24
+        // count all selected days + current day
+        return Math.abs(endDate.getTime() - startDate.getTime()) / 1000 / 60 / 60 / 24 + 1
       },
 
       sum() {
-        // all selected days + current day
-        let res = this.sumStart + this.daysCount * (this.daysCount + 1) / 2;
+        const firstDay = 1;
+        let res = this.sumStart + ((firstDay * 2 + (this.daysCount - 1)) / 2) * this.daysCount;
 
-        return String(res).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
+        return String(res).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1\u00a0')
       }
     },
 
